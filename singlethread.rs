@@ -2,7 +2,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 async fn dp(id: u64, value: Rc<RefCell<u8>>) {
-    tokio::time::sleep(std::time::Duration::from_millis(1000 - id)).await;
+    tokio::time::sleep(std::time::Duration::from_millis(1000)).await;
     let mut value = value.borrow_mut();
     println!("{} {}", id, *value);
     *value += 1;
